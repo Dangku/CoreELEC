@@ -45,6 +45,9 @@ for arg in $(cat /proc/cmdline); do
 
       if [ -n "$DT_ID" ]; then
         case $DT_ID in
+          *bananapi_m5)
+            SUBDEVICE="Bananapi_M5"
+            ;;
           *odroid_n2*)
             SUBDEVICE="Odroid_N2"
             ;;
@@ -137,6 +140,13 @@ if [ "${SUBDEVICE}" == "Odroid_N2" -o "${SUBDEVICE}" == "Odroid_C4" -o "${SUBDEV
   if [ -f $SYSTEM_ROOT/usr/share/bootloader/hk-boot-logo-1080.bmp.gz ]; then
     echo "Updating boot logos..."
     cp -p $SYSTEM_ROOT/usr/share/bootloader/hk-boot-logo-1080.bmp.gz $BOOT_ROOT/boot-logo-1080.bmp.gz
+  fi
+fi
+
+if [ "${SUBDEVICE}" == "Bananapi_M5" ]; then
+  if [ -f $SYSTEM_ROOT/usr/share/bootloader/bpi-boot-logo.bmp.gz ]; then
+    echo "Updating boot logos..."
+    cp -p $SYSTEM_ROOT/usr/share/bootloader/bpi-boot-logo.bmp.gz $BOOT_ROOT/boot-logo.bmp.gz
   fi
 fi
 

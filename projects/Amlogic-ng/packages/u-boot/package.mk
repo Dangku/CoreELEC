@@ -49,11 +49,18 @@ makeinstall_target() {
       else
         PKG_UBOOTBIN=$(get_build_dir u-boot-Odroid_C4)/sd_fuse/u-boot.bin.sd.bin
       fi
+
+      # Copy Hardkernel boot logo
+      find_file_path splash/hk-boot-logo-1080.bmp.gz && cp -av ${FOUND_PATH} $INSTALL/usr/share/bootloader
     elif [ $PKG_SUBDEVICE = "LePotato" ]; then
         PKG_UBOOTBIN=$(get_build_dir u-boot-${PKG_SUBDEVICE})/fip/u-boot.bin.sd.bin
         PKG_CHAINUBOOTBIN=$(get_build_dir u-boot-${PKG_SUBDEVICE})/build/u-boot.bin
     elif [ $PKG_SUBDEVICE = "LaFrite" ]; then
         PKG_CHAINUBOOTBIN=$(get_build_dir u-boot-${PKG_SUBDEVICE})/build/u-boot.bin
+    elif [ $PKG_SUBDEVICE = "Bananapi_M5" ]; then
+	PKG_UBOOTBIN=$(get_build_dir u-boot-${PKG_SUBDEVICE})/sd_fuse/u-boot.bin.sd.bin
+        # Copy Hardkernel boot logo
+        find_file_path splash/bpi-boot-logo.bmp.gz && cp -av ${FOUND_PATH} $INSTALL/usr/share/bootloader
     fi
     if [ ${PKG_UBOOTBIN} ]; then
         cp -av ${PKG_UBOOTBIN} $INSTALL/usr/share/bootloader/${PKG_SUBDEVICE}_u-boot
@@ -65,6 +72,4 @@ makeinstall_target() {
   find_file_path bootloader/config.ini && cp -av ${FOUND_PATH} $INSTALL/usr/share/bootloader
     sed -e "s/@PROJECT@/${PKG_CANUPDATE}/g" \
         -i $INSTALL/usr/share/bootloader/canupdate.sh
-  # Copy Hardkernel boot logo
-  find_file_path splash/hk-boot-logo-1080.bmp.gz && cp -av ${FOUND_PATH} $INSTALL/usr/share/bootloader
 }

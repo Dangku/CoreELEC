@@ -4,7 +4,7 @@
 # Copyright (C) 2018-present Team CoreELEC (https://coreelec.org)
 
 # copy amlogic autoscript files to part1 if needed
-if [ "${SUBDEVICE}" != "Odroid_N2" ] && [ "${SUBDEVICE}" != "Odroid_C4" ] && [ "${SUBDEVICE}" != "Odroid_HC4" ] && [ "${SUBDEVICE}" != "LePotato" ] && [ "${SUBDEVICE}" != "LaFrite" ] ; then
+if [ "${SUBDEVICE}" != "Bananapi_M5" ] && [ "${SUBDEVICE}" != "Odroid_N2" ] && [ "${SUBDEVICE}" != "Odroid_C4" ] && [ "${SUBDEVICE}" != "Odroid_HC4" ] && [ "${SUBDEVICE}" != "LePotato" ] && [ "${SUBDEVICE}" != "LaFrite" ] ; then
   for f in $RELEASE_DIR/3rdparty/bootloader/*autoscript; do
     [ -e "$f" ] && mcopy "$f" ::
   done
@@ -47,6 +47,12 @@ if [ "${SUBDEVICE}" != "Generic" ]; then
     fi
     if [ -f "$RELEASE_DIR/3rdparty/bootloader/timeout-logo-1080.bmp.gz" ]; then
       mcopy $RELEASE_DIR/3rdparty/bootloader/timeout-logo-1080.bmp.gz ::
+    fi
+  fi
+
+  if [ "${SUBDEVICE}" == "Bananapi_M5" ]; then
+    if [ -f "$RELEASE_DIR/3rdparty/bootloader/bpi-boot-logo.bmp.gz" ]; then
+      mcopy $RELEASE_DIR/3rdparty/bootloader/bpi-boot-logo.bmp.gz "::/boot-logo.bmp.gz"
     fi
   fi
 
