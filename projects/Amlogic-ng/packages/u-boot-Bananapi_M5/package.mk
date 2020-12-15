@@ -2,8 +2,8 @@
 # Copyright (C) 2018-present Team CoreELEC (https://coreelec.org)
 
 PKG_NAME="u-boot-Bananapi_M5"
-PKG_VERSION="367408fff744f869a9625d7dd93d49b40a1604ec"
-PKG_SHA256="4b6220a638e5db49b8573e1ac96553736bee46d07aa1a6cfd883c7e23aadcd39"
+PKG_VERSION="e32178bf68861a172562ae9d330dd7f48d9d738e"
+PKG_SHA256="22e421c6506914128dd3ffce6269cc1ae487060ef58b02f472618d20b9692865"
 PKG_LICENSE="GPL"
 PKG_SITE="https://www.denx.de/wiki/U-Boot"
 PKG_URL="https://github.com/Dangku/amlogic-u-boot/archive/$PKG_VERSION.tar.gz"
