@@ -1,7 +1,7 @@
 # SPDX-License-Identifier: GPL-2.0-or-later
 # Copyright (C) 2018-present Team CoreELEC (https://coreelec.org)
 
-PKG_NAME="u-boot-Bananapi_M5"
+PKG_NAME="u-boot-Bananapi_M2Pro"
 PKG_VERSION="99215196b4ca5a4230a722c5bab9f3ed4caa0e5c"
 PKG_SHA256="fec22c00d2621f5d5c3752637b342e79b6d7847b8baab91cb19ea335f62fd6fa"
 PKG_LICENSE="GPL"

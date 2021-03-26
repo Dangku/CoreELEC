@@ -48,6 +48,9 @@ for arg in $(cat /proc/cmdline); do
           *bananapi_m5)
             SUBDEVICE="Bananapi_M5"
             ;;
+          *bananapi_m2pro)
+            SUBDEVICE="Bananapi_M2Pro"
+            ;;
           *odroid_n2*)
             SUBDEVICE="Odroid_N2"
             ;;
@@ -143,7 +146,7 @@ if [ "${SUBDEVICE}" == "Odroid_N2" -o "${SUBDEVICE}" == "Odroid_C4" -o "${SUBDEV
   fi
 fi
 
-if [ "${SUBDEVICE}" == "Bananapi_M5" ]; then
+if [ "${SUBDEVICE}" == "Bananapi_M5" -o "${SUBDEVICE}" == "Bananapi_M2Pro" ]; then
   if [ -f $SYSTEM_ROOT/usr/share/bootloader/bpi-boot-logo.bmp.gz ]; then
     echo "Updating boot logos..."
     cp -p $SYSTEM_ROOT/usr/share/bootloader/bpi-boot-logo.bmp.gz $BOOT_ROOT/boot-logo.bmp.gz

@@ -57,7 +57,7 @@ makeinstall_target() {
         PKG_CHAINUBOOTBIN=$(get_build_dir u-boot-${PKG_SUBDEVICE})/build/u-boot.bin
     elif [ $PKG_SUBDEVICE = "LaFrite" ]; then
         PKG_CHAINUBOOTBIN=$(get_build_dir u-boot-${PKG_SUBDEVICE})/build/u-boot.bin
-    elif [ $PKG_SUBDEVICE = "Bananapi_M5" ]; then
+    elif [ $PKG_SUBDEVICE = "Bananapi_M5" -o $PKG_SUBDEVICE = "Bananapi_M2Pro" ]; then
 	PKG_UBOOTBIN=$(get_build_dir u-boot-${PKG_SUBDEVICE})/sd_fuse/u-boot.bin.sd.bin
         # Copy Hardkernel boot logo
         find_file_path splash/bpi-boot-logo.bmp.gz && cp -av ${FOUND_PATH} $INSTALL/usr/share/bootloader
